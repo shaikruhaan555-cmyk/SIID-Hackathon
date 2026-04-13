@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validating_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Application_Status__c, &quot;Approved&quot;),
+    NOT(ISPICKVAL(PRIORVALUE(Application_Status__c), &quot;Approved&quot;)),
+    OR(
+        ISBLANK(Total_Repayment_Amount__c),
+        ISBLANK(Interest_Rate__c),
+        ISBLANK(Repayment_Tenure_Months__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>You can approve this loan application only after Total Repayment Amount, Interest Rate, and Repayment Tenure Months are populated</errorMessage>
+</ValidationRule>

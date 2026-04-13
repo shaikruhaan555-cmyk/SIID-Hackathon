@@ -1,0 +1,47 @@
+<template>
+    <div class="container">
+
+        <div class="card">
+
+            <div class="header">
+                <lightning-icon icon-name="utility:upload" size="large"></lightning-icon>
+                <h1>Upload Your Documents</h1>
+                <p>Securely submit your KYC documents</p>
+            </div>
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+
+            <div class="upload-section">
+
+                <div class="upload-box">
+                    <h3>📄 Aadhar Card</h3>
+                    <lightning-input type="file"
+                        accept=".jpg,.jpeg,.png,.pdf"
+                        onchange={handleAadharFile}>
+                    </lightning-input>
+                </div>
+
+                <div class="upload-box">
+                    <h3>🪪 PAN Card</h3>
+                    <lightning-input type="file"
+                        accept=".jpg,.jpeg,.png,.pdf"
+                        onchange={handlePanFile}>
+                    </lightning-input>
+                </div>
+
+            </div>
+
+            <div class="footer">
+                <lightning-button
+                    label="Submit Documents"
+                    variant="brand"
+                    onclick={handleSubmit}>
+                </lightning-button>
+            </div>
+
+        </div>
+
+    </div>
+</template>
